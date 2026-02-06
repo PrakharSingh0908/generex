@@ -1,0 +1,412 @@
+/* ── Reset & Base ─────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  color: #e0e0e0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  display: flex;
+}
+
+/* ── Sidebar ──────────────────────────────────────────────────────────────── */
+.sidebar {
+  width: 280px;
+  min-width: 280px;
+  height: 100vh;
+  background: #0a0a0a;
+  border-right: 1px solid #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 2px;
+}
+
+/* ── Logo ─────────────────────────────────────────────────────────────────── */
+.logo {
+  padding: 20px 20px 16px;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.logo h1 {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+
+.logo .tagline {
+  font-size: 11px;
+  color: #666;
+  margin-top: 2px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+/* ── Control Groups ───────────────────────────────────────────────────────── */
+.controls {
+  flex: 1;
+  padding: 8px 0;
+}
+
+.control-group {
+  padding: 12px 20px;
+  border-bottom: 1px solid #141414;
+}
+
+.control-group h3 {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.control {
+  margin-bottom: 10px;
+}
+
+.control:last-child {
+  margin-bottom: 0;
+}
+
+.control label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 6px;
+}
+
+.control label span {
+  color: #fff;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Range Inputs ─────────────────────────────────────────────────────────── */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: #222;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* ── Number / Text Inputs ─────────────────────────────────────────────────── */
+input[type="number"],
+select {
+  width: 100%;
+  padding: 6px 10px;
+  background: #151515;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  color: #e0e0e0;
+  font-size: 12px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="number"]:focus,
+select:focus {
+  border-color: #444;
+}
+
+select {
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 28px;
+}
+
+/* ── Seed Control ─────────────────────────────────────────────────────────── */
+.seed-control {
+  display: flex;
+  gap: 6px;
+}
+
+.seed-control input {
+  flex: 1;
+}
+
+.seed-control button {
+  padding: 6px 12px;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  color: #999;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.seed-control button:hover {
+  background: #222;
+  color: #fff;
+  border-color: #444;
+}
+
+/* ── Checkbox ─────────────────────────────────────────────────────────────── */
+.checkbox-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.checkbox-control input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background: #151515;
+  cursor: pointer;
+  position: relative;
+}
+
+.checkbox-control input[type="checkbox"]:checked {
+  background: #fff;
+  border-color: #fff;
+}
+
+.checkbox-control input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 4px;
+  height: 8px;
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-control label {
+  font-size: 12px;
+  color: #999;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+#fadeControls {
+  display: none;
+  margin-top: 10px;
+}
+
+/* ── Palette Selector ─────────────────────────────────────────────────────── */
+.palette-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.palette-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.palette-option:hover {
+  background: #1a1a1a;
+}
+
+.palette-option.selected {
+  background: #1a1a1a;
+  outline: 1px solid #333;
+}
+
+.palette-swatches {
+  display: flex;
+  gap: 3px;
+}
+
+.swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: block;
+}
+
+.palette-name {
+  font-size: 11px;
+  color: #777;
+}
+
+.palette-option.selected .palette-name {
+  color: #ccc;
+}
+
+/* ── Action Buttons ───────────────────────────────────────────────────────── */
+.actions {
+  padding: 16px 20px;
+  border-top: 1px solid #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.btn-primary {
+  background: #fff;
+  color: #000;
+}
+
+.btn-primary:hover {
+  background: #e0e0e0;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #999;
+  border: 1px solid #2a2a2a;
+}
+
+.btn-secondary:hover {
+  color: #fff;
+  border-color: #444;
+}
+
+.btn-secondary.paused {
+  border-color: #4ECDC4;
+  color: #4ECDC4;
+}
+
+.btn-row {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-row .btn {
+  flex: 1;
+}
+
+.btn-export {
+  background: #1a1a1a;
+  color: #4ECDC4;
+  border: 1px solid #2a2a2a;
+}
+
+.btn-export:hover {
+  background: #222;
+  border-color: #4ECDC4;
+}
+
+.btn-clear {
+  background: transparent;
+  color: #666;
+  border: 1px solid #1a1a1a;
+}
+
+.btn-clear:hover {
+  color: #999;
+  border-color: #333;
+}
+
+/* ── Status Bar ───────────────────────────────────────────────────────────── */
+.status {
+  padding: 10px 20px;
+  font-size: 11px;
+  color: #444;
+  border-top: 1px solid #141414;
+  display: flex;
+  justify-content: space-between;
+}
+
+.status span {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Canvas Area ──────────────────────────────────────────────────────────── */
+.canvas-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  padding: 20px;
+  position: relative;
+}
+
+.canvas-area canvas {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 2px;
+  box-shadow: 0 4px 40px rgba(0,0,0,0.5);
+}
